@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+	<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css' rel="stylesheet">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!-- My CSS -->
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/addBook.css">
+
+
+	<title>AdminHub</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-mask ' ></i>
+			<span class="text">Admin</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#dashboard">
+					<i class='bx bxs-dashboard'></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="#recentBooksTable">
+					<i class='bx bxs-book-open'></i>
+					<span class="text" onclick="">Books</span>
+				</a>
+			</li>
+			<li>
+				<a href="#recentAddedStudents">
+					<i class='bx bxs-user-plus'></i>
+					<span class="text">Students</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog'></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle'></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link"></a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+			</a>
+			<a href="#" class="profile">
+				<img src="../../img/admin.webp">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title" id="dashboard">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<!--
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+					-->
+				</div>
+			</div>
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-book-alt'></i>
+					<span class="text">
+
+
+						<h3 id="bookCount">5</h3>
+						<p>New Books</p>
+                </span>
+				</li>
+				<li>
+					<i class='bx bxs-group'></i>
+					<span class="text">
+						<h3 id="studentCount">5</h3>
+						<p>Students</p>
+					</span>
+				</li>
+			</ul>
+
+			<div class="table-data">
+				<div class="order" id="recentBooksTable">
+					<div class="head">
+						<h3>Recent Added Books</h3>
+						<i class='bx bx-search'></i>
+						<div>
+							<button type="button" class="buttonToAddBox" id="addBookButton" data-toggle="modal" data-target="#myModal" >
+								<i class='bx bx-plus'></i>
+							</button>
+							<div class="modal fade" id="myModal" role="dialog">
+								<div class="modal-dialog modal-xs modal-dialog-centered"> <!-- Add modal-dialog-centered class here -->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h3 class="modal-title">Add Book</h3>
+										</div>
+										<div class=" todo-input-grid">
+											<input placeholder="Book Name" class="js-name-input name-input">
+											<input placeholder="Quantity" class="js-quantity-input name-input">
+											<input type="date" class="js-date-input date-input">
+										</div>
+										<div class="modal-footer">
+											<button  onClick="addTodo()" class="add-todo-button">Add</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- modal-dialog -->
+
+
+						</div>
+					</div>
+
+					<table>
+						<thead>
+						<tr>
+							<th>Books</th>
+							<th>Added Date</th>
+							<th>Quantity</th>
+							<th> Edit</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>
+								<img src="../../img/book1.png">
+								<p>Programming Basics With Java</p>
+							</td>
+							<td>01-10-2024</td>
+							<td><span class="status completed">10</span></td>
+							<td>
+								<button onclick="deleteBook(this)" class="delete-button">Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../img/book2.jpg">
+								<p>The Complete Reference Java 7th Edition</p>
+							</td>
+							<td>01-10-2024</td>
+							<td><span class="status pending">5</span></td>
+							<td>
+								<button onclick="deleteBook(this)" class="delete-button">Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../img/book3.jpg">
+								<p>The little Book of Java Programming</p>
+							</td>
+							<td>01-10-2024</td>
+							<td><span class="status process">4</span></td>
+							<td>
+								<button onclick="deleteBook(this)" class="delete-button">Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../img/book4.webp">
+								<p>The C Programming Language</p>
+							</td>
+							<td>01-10-2024</td>
+							<td><span class="status pending">6</span></td>
+							<td>
+								<button onclick="deleteBook(this)" class="delete-button">Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="../../img/book5.webp">
+								<p>Data Structures And Algorithms</p>
+							</td>
+							<td>01-10-2024</td>
+							<td><span class="status completed">5</span></td>
+							<td>
+								<button onclick="deleteBook(this)" class="delete-button">Delete</button>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="table-data">
+					<div class="order" id="recentAddedStudents">
+						<div class="head">
+							<h3>Student List</h3>
+							<i class='bx bx-search'></i>
+							<div>
+								<button type="button" class="buttonToAddBox" id="addStudentButton" data-toggle="modal" data-target="#my_Modal">
+									<i class='bx bx-plus'></i>
+								</button>
+								<!-- modal-dialog -->
+								<div class="modal fade" id="my_Modal" role="dialog">
+									<div class="modal-dialog modal-xs modal-dialog-centered"> <!-- Add modal-dialog-centered class here -->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h3 class="modal-title">Add Student</h3>
+											</div>
+											<div class="todo-input-grid">
+												<input placeholder="Student Name" class="js-student-name-input name-input">
+												<input placeholder="Book Name" class="js-book-name-input name-input">
+												<input type="date" class="js-date-value-input date-input">
+											</div>
+											<div class="modal-footer">
+												<button onClick="addStudent()" class="add-todo-button">Add</button>
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<table >
+							<thead>
+							<tr>
+								<th>Name</th>
+								<th>Book Taken</th>
+								<th>Date</th>
+								<th>Edit</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+
+								<td>
+									<img src="../../img/admin.webp">
+
+									<p>Apeksha Khadka</p>
+
+								</td>
+								<td>The Complete Reference Java 7th Edition</td>
+								<td>01-10-2024</td>
+								<td>
+									<button onclick="deleteStudent(this)" class="delete-button">Delete</button>
+								</td>
+
+
+							</tr>
+							<tr>
+								<td>
+									<img src="../../img/admin.webp">
+									<p>Zayn Malik</p>
+
+								</td>
+								<td>C++</td>
+								<td>01-10-2024</td>
+								<td>
+									<button onclick="deleteStudent(this)" class="delete-button">Delete</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../../img/admin.webp">
+									<p>Lana Del Rey</p>
+
+								</td>
+								<td>Data Structures and Algorithm</td>
+								<td>01-10-2024</td>
+								<td>
+									<button onclick="deleteStudent(this)" class="delete-button">Delete</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../../img/admin.webp">
+									<p>Adele</p>
+
+								</td>
+								<td>The C Programming Language</td>
+								<td>01-10-2024</td>
+								<td>
+									<button onclick="deleteStudent(this)" class="delete-button">Delete</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../../img/admin.webp">
+									<p>Giveon</p>
+
+								</td>
+								<td>The Complete Reference Java 7th Edition</td>
+								<td>01-10-2024</td>
+								<td>
+									<button onclick="deleteStudent(this)" class="delete-button">Delete</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+	<script src="../js/script.js"></script>
+
+</body>
+</html>

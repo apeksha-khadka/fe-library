@@ -1,0 +1,60 @@
+/* addBook.css */
+
+.modal-content {
+    padding: 20px;
+    /* Add padding to the modal content */
+
+}
+
+
+
+.js-name-input, .js-due-date-input {
+    width: 100%; /* Make the input fields take up full width */
+    padding: 8px; /* Add padding to the input fields */
+    border: 1px solid #ccc; /* Add border to the input fields */
+    border-radius: 10px; /* Add border radius to the input fields */
+}
+
+.add-todo-button {
+    padding: 8px 15px; /* Add padding to the button */
+    background-color: #007bff; /* Set background color for the button */
+    color: #fff; /* Set text color for the button */
+    border: none; /* Remove border from the button */
+    border-radius: 10px; /* Add border radius to the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.add-todo-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+.modal {
+    text-align:center;
+    margin-top: 200px;/* Center the modal horizontally */
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left; /* Reset text alignment */
+    vertical-align: middle;
+
+}
+.btn btn-default{
+    color: #060714;
+    height:20px;
+
+
+}
+.todo-input-grid input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Add border-radius to make the input boxes rounded */
+    box-sizing: border-box;
+}
+
+.todo-input-grid{
+    margin-bottom: 10px;
+    align-items: stretch;
+}
+
