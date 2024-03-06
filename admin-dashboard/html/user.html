@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .outer-container {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            
+            display: flex;
+            background-color: #f8f8f8;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .image-container {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .form-container form {
+            display: block;
+        }
+
+        .form-container.register {
+            display: none;
+        }
+
+        .input-field {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="outer-container">
+        <div class="container">
+            <div class="image-container">
+                <img src="RWU_Logo_cmyk.svg.png" alt="Your Image" style="max-width: 100%;">
+                
+            </div>
+            <div class="form-container" id="loginForm">
+                <form onsubmit="return login()">
+                    <div>
+                        <input id="username" type="text" class="input-field" placeholder="Username*" required>
+                    </div>
+                    <div>
+                        <input id="password" type="password" class="input-field" placeholder="Password*" required>
+                    </div>
+                    <div>
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+                <p>Don't have an account? <a href="#" onclick="toggleForm('registerForm')">Register here</a></p>
+            </div>
+            <div class="form-container register" id="registerForm">
+                <form onsubmit="return register()">
+                    <div>
+                        <input id="registerUsername" type="text" class="input-field" placeholder="Username" required>
+                    </div>
+                    <div>
+                        <input id="registerEmail" type="email" class="input-field" placeholder="Email" required>
+                    </div>
+                    <div>
+                        <input id="registerPassword" type="password" class="input-field" placeholder="Password" required>
+                    </div>
+                    <div>
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+                <p>Already have an account? <a href="#" onclick="toggleForm('loginForm')">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function toggleForm(formId) {
+            document.getElementById('loginForm').classList.toggle('register');
+            document.getElementById('registerForm').classList.toggle('register');
+        }
+
+
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Check for specific credentials
+            if (username === 'ak-201123' && password === 'asdfgLKJH1@') {
+                // Redirect to index.html
+                window.location.href = 'index.html';
+                return false;
+            }
+            else if (username === 'username' && password === 'asdfgLKJH1@') {
+                // Redirect to index.html
+                window.location.href = 'index.html';
+                return false;
+            } else {
+                alert('Invalid username or password. Please try again.');
+                return false; // Prevent form submission
+            }
+        }
+
+        function register() {
+            var username = document.getElementById('registerUsername').value;
+            var password = document.getElementById('registerPassword').value;
+
+            // Check if the username is already taken
+            var existingUser = registeredUsers.find(function(user) {
+                return user.username === username;
+            });
+
+            if (existingUser) {
+                alert('Username already exists. Please choose a different one.');
+                return false; // Prevent form submission
+            }
+
+
+            registeredUsers.push({ username: username, password: password });
+
+            alert('Registration successful! You can now login.');
+            toggleForm('loginForm');
+
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
